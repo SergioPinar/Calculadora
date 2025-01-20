@@ -6,8 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Introduce la operación (suma, resta, multiplicacion, division): ");
-        String operacion = scanner.nextLine().toLowerCase();
+        String operacion = Menú(scanner);
 
         System.out.print("Introduce el primer número: ");
         double num1 = scanner.nextDouble();
@@ -31,7 +30,8 @@ public class Main {
                 if (num2 != 0) {
                     resultado = num1 / num2;
                 } else {
-                    System.out.println("Error: No se puede dividir entre 0");
+                    System.out.println("Error: no se puede dividir entre 0");
+                    
                     scanner.close();
                     return;
                 }
@@ -45,4 +45,10 @@ public class Main {
         System.out.println("El resultado de la " + operacion + " es: " + resultado);
         scanner.close();
     }
+
+	private static String Menú(Scanner scanner) {
+		System.out.print("Introduce la operación (suma, resta, multiplicacion, division): ");
+        String operacion = scanner.nextLine().toLowerCase();
+		return operacion;
+	}
 }
